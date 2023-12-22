@@ -1,0 +1,115 @@
+﻿<UserControl x:Class="Desktop.View.Page1"
+               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Height="300" Width="400">
+
+    <UserControl.Resources >
+        
+        <Style x:Key="CustomTextBox" TargetType="{x:Type TextBox}">
+            <Setter Property="Background" Value="#F0F0F0"/>
+            <Setter Property="BorderBrush" Value="#CCCCCC"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Foreground" Value="#333333"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="MinHeight" Value="30"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="5">
+                            <ScrollViewer x:Name="PART_ContentHost" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Background" Value="#EEEEEE"/>
+                                <Setter Property="BorderBrush" Value="#DDDDDD"/>
+                                <Setter Property="Foreground" Value="#888888"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+
+
+
+
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <StackPanel Margin="0,0,0,-68" Grid.RowSpan="3">
+            <Label Content="Имя"
+                   HorizontalAlignment="Center"/>
+            <TextBox Style="{StaticResource CustomTextBox}" x:Name="txtFullName" Margin="5"/>
+            <Label Content="Фамилия"
+                   HorizontalAlignment="Center"/>
+            <TextBox Style="{StaticResource CustomTextBox}" x:Name="txtSurname" Margin="5" />
+            <Label Content="Дата"
+                   HorizontalAlignment="Center"/>
+            <TextBox Style="{StaticResource CustomTextBox}" x:Name="txtDate" Margin="5" />
+
+            <Label Content="Время приема"
+                   HorizontalAlignment="Center"/>
+            <TextBox Style="{StaticResource CustomTextBox}" x:Name="txtTime" Margin="5" />
+            
+            <Label Content="Диагноз"
+                   HorizontalAlignment="Center"/>
+            <ComboBox x:Name="cmbDiagnosis" Margin="5" >
+                <!-- Add ComboBox items here -->
+                <ComboBoxItem>Diagnosis1</ComboBoxItem>
+                <ComboBoxItem>Diagnosis2</ComboBoxItem>
+                <ComboBoxItem>Diagnosis3</ComboBoxItem>
+                <ComboBoxItem>Diagnosis1</ComboBoxItem>
+                <ComboBoxItem>Diagnosis2</ComboBoxItem>
+                <ComboBoxItem>Diagnosis3</ComboBoxItem>
+                <ComboBoxItem>Diagnosis1</ComboBoxItem>
+                <ComboBoxItem>Diagnosis2</ComboBoxItem>
+                <ComboBoxItem>Diagnosis3</ComboBoxItem>
+                <ComboBoxItem>Diagnosis1</ComboBoxItem>
+                <ComboBoxItem>Diagnosis2</ComboBoxItem>
+                <ComboBoxItem>Diagnosis3</ComboBoxItem>
+                <ComboBoxItem>Diagnosis1</ComboBoxItem>
+                <ComboBoxItem>Diagnosis2</ComboBoxItem>
+                <ComboBoxItem>Diagnosis3</ComboBoxItem>
+                <ComboBoxItem>Diagnosis1</ComboBoxItem>
+                <ComboBoxItem>Diagnosis2</ComboBoxItem>
+                <ComboBoxItem>Diagnosis3</ComboBoxItem>
+                <ComboBoxItem>Diagnosis1</ComboBoxItem>
+                <ComboBoxItem>Diagnosis2</ComboBoxItem>
+                <ComboBoxItem>Diagnosis3</ComboBoxItem>
+                <ComboBoxItem>Diagnosis1</ComboBoxItem>
+                <ComboBoxItem>Diagnosis2</ComboBoxItem>
+                <ComboBoxItem>Diagnosis3</ComboBoxItem>
+                <ComboBoxItem>Diagnosis1</ComboBoxItem>
+                <ComboBoxItem>Diagnosis2</ComboBoxItem>
+                <ComboBoxItem>Diagnosis3</ComboBoxItem>
+                <ComboBoxItem>Diagnosis1</ComboBoxItem>
+                <ComboBoxItem>Diagnosis2</ComboBoxItem>
+                <ComboBoxItem>Diagnosis3</ComboBoxItem>
+                <ComboBoxItem>Diagnosis1</ComboBoxItem>
+                <ComboBoxItem>Diagnosis2</ComboBoxItem>
+                <ComboBoxItem>Diagnosis3</ComboBoxItem>
+                <ComboBoxItem>Diagnosis1</ComboBoxItem>
+                <ComboBoxItem>Diagnosis2</ComboBoxItem>
+                <ComboBoxItem>Diagnosis3</ComboBoxItem>
+                <!-- Add more items as needed -->
+            </ComboBox>
+
+            <Button Content="Добавить пациента" Click="Button_Click" Margin="5"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

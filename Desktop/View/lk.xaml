@@ -1,0 +1,174 @@
+﻿<Window x:Class="Desktop.View.lk"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Desktop.View"
+        mc:Ignorable="d"
+        xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
+        Title="lk" Height="450" Width="800"
+        WindowStyle="None"
+        Background="Transparent"
+        AllowsTransparency =" True"
+        MouseDown="Window_MouseDown">
+
+
+
+    <Border CornerRadius="12"
+            BorderThickness="5"
+            BorderBrush="#42f5f5">
+
+        <Grid>
+            <!--Navigation menu-->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="53*"/>
+                <ColumnDefinition Width="7*"/>
+                <!--Content menu-->
+            </Grid.ColumnDefinitions>
+
+            <!--Navigation Menu Border-->
+            <Border CornerRadius="10,0,0,10"
+                    Grid.Column="0">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0.7">
+                        <GradientStop Color="{StaticResource secondaryBackColor1}" Offset="0"/>
+                        <GradientStop Color="{StaticResource secondaryBackColor2}" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <!--Menu Buttons-->
+                <StackPanel Grid.Row="0">
+
+
+                    <RadioButton Style="{StaticResource menuButton}"
+                                 Tag="{StaticResource color2}"
+                                 IsChecked="True"
+                                 Command="{Binding ShowHomeViewCommand}"
+                                 Click="RadioButton_Click_2">
+                        <StackPanel Orientation="Horizontal">
+                            <fa:IconImage Icon="Home" Style="{StaticResource menuButtonIcon }"/>
+                            <TextBlock Text="Кабинет" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+
+                    <RadioButton Style="{StaticResource menuButton}"
+                                 Tag="{StaticResource color2}"
+                                 Command="{Binding ShowCustomerViewCommand}"
+                                 Click="RadioButton_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <fa:IconImage Icon="UserGroup" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Записи" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+
+                    <RadioButton Style="{StaticResource menuButton}"
+             Tag="{StaticResource color2}"
+             Command="{Binding ShowCustomerViewCommand}"
+                                 Click="RadioButton_Click_1">
+                        <StackPanel Orientation="Horizontal">
+                            <fa:IconImage Icon="Envelope" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Записать" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+
+
+                    <RadioButton Style="{StaticResource menuButton}"
+             Tag="{StaticResource color2}"
+             Command="{Binding ShowCustomerViewCommand}"
+                                 Click="RadioButton_Click_3">
+                        <StackPanel Orientation="Horizontal">
+                            <fa:IconImage Icon="Cog" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Сервис" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+
+
+                    <RadioButton Style="{StaticResource menuButton}" Tag="{StaticResource color2}" VerticalAlignment="Bottom"
+                                 Click="RadioButton_Click_4">
+                        <StackPanel Orientation="Horizontal">
+                            <fa:IconImage Icon="Dashboard" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Выход" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+
+
+                </StackPanel>
+                
+                
+                
+            </Border>
+
+
+
+
+            <!--Main Section-->
+            <Border CornerRadius="0,10,10,0"
+                        Grid.Column="1" Grid.ColumnSpan="2">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="1,1" EndPoint="0,0">
+                        <GradientStop Color="{StaticResource primaryBackColor1}" Offset="0"/>
+                        <GradientStop Color="{StaticResource primaryBackColor2}" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+
+                    <!--Control Panel-->
+                    <StackPanel x:Name="pnlControlBar"
+                                Grid.Row="0"
+                                Orientation="Horizontal"
+                                FlowDirection="RightToLeft"
+                                Background="Transparent"
+                                Margin="0,0,5,0"
+                                MouseLeftButtonDown="pnlControlBar_MouseLeftButtonDown"
+                                MouseEnter="pnlControlBar_MouseEnter" Cursor=""
+                                >
+
+                        <Button x:Name="btnClose"
+                                Style="{StaticResource clscontrolButton}"                                
+                                Click="btnClose_Click">
+                            <fa:IconImage Icon="Xmark" Width="10" Foreground="#FF0A0A0A"/>
+                        </Button>
+
+
+
+                        <Button x:Name="btnMaximize"
+                                Style="{StaticResource controlButton}"                                
+                                Click="btnMaximize_Click">
+                            <fa:IconImage Icon="Square" Height="10" Width="12" Foreground="Black" />
+                        </Button>
+
+                        <Button x:Name="btnMinimize"                               
+                                Style="{StaticResource controlButton}"                                                               
+                                Click="btnMinimize_Click" Width="41">
+                            <fa:IconImage Icon="WindowMinimize" Width="14" />
+                        </Button>
+
+                    </StackPanel>
+                    <!-- Header stiles-->
+                    <Grid Grid.Row="1">
+
+                    </Grid>
+                    <Grid Grid.Row="2">
+
+
+                    </Grid>
+
+                </Grid>
+
+
+
+            </Border>
+            <ContentControl x:Name="contentControl" Grid.Column="1"/>
+        </Grid>
+
+    </Border>
+</Window>
